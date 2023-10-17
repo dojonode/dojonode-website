@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -11,6 +11,9 @@ dependencies:
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
+  pocketbase:
+    specifier: ^0.18.3
+    version: 0.18.3
   simple-duration:
     specifier: ^1.1.0
     version: 1.1.0
@@ -4713,6 +4716,10 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: true
+
+  /pocketbase@0.18.3:
+    resolution: {integrity: sha512-zE4+oue0p0Ntwoil17b2geBpPwV6B6bYdsbXmNWmod6XOqBK2+jLDT5/SlAP3une4bo3U5ZAW2GvigEBAV3bBg==}
+    dev: false
 
   /postcss-cli@10.1.0(postcss@8.4.29):
     resolution: {integrity: sha512-Zu7PLORkE9YwNdvOeOVKPmWghprOtjFQU3srMUGbdz3pHJiFh7yZ4geiZFMkjMfB0mtTFR3h8RemR62rPkbOPA==}

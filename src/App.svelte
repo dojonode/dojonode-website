@@ -8,6 +8,7 @@
   const routes = {
     "/": Home,
     "/dashboard": Dashboard,
+    "/provers": ProverMarket,
   };
   // const routes = {
   //   "/": wrap({
