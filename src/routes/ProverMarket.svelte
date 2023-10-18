@@ -4,12 +4,13 @@
   let records: any[] = [];
   let provers: any[] = [];
   let newProverEndpoint;
-  const pb = new PocketBase("http://0.0.0.0:8090");
+  const pb = new PocketBase(import.meta.env.VITE_PB_URI);
+  // const pb = new PocketBase("http://0.0.0.0:8090");
 
   async function fetchRecords() {
-    const authData = await pb.admins.authWithPassword(
-      "wolfez4444@gmail.com",
-      "testing12345"
+    const authData = await pb.collection('users').authWithPassword(
+      import.meta.env.VITE_PB_USER,
+      import.meta.env.VITE_PB_PASSWORD
     );
 
     // reset the records array
