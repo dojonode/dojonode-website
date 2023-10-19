@@ -1,7 +1,7 @@
 {
-  "name": "@wolfderechter/taiko-node-dashboard",
-  "version": "1.0.2",
-  "private": true,
+  "name": "@wolfderechter/dojonode-website",
+  "version": "1.0.0",
+  "private": false,
   "type": "module",
   "homepage": "https://dojonode.xyz",
   "scripts": {
