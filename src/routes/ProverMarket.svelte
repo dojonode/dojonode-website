@@ -5,7 +5,6 @@
   let provers: any[] = [];
   let newProverEndpoint;
   const pb = new PocketBase(import.meta.env.VITE_PB_URI);
-  // const pb = new PocketBase("http://0.0.0.0:8090");
 
   async function fetchRecords() {
     const authData = await pb.collection('users').authWithPassword(
@@ -65,31 +64,41 @@
         // TODO: maybe show toast message?
         return;
       }
+      // Add the prover to the DB
+      const newProverRecord = await pb.collection('prover_endpoints').create({
+        url: newProverEndpoint,
+      });
 
-      const response = await fetch(`${newProverEndpoint}/status`);
-      if (response.ok) {
-        const data = await response.json();
+      // Success: refresh data and show toast?
+      fetchRecords();
+      newProverEndpoint = '';
 
-        // Check if the endpoint is valid and contains the minProofFee and currentCapacity
-        if('minProofFee' in data && 'currentCapacity' in data){
-          console.log('creating the prover');
-          // Add the prover to the DB
-          const newProverRecord = await pb.collection('prover_endpoints').create({
-            url: newProverEndpoint,
-          });
+      // Moved to database hook
+      // const response = await fetch(`${newProverEndpoint}/status`);
+      // if (response.ok) {
+      //   const data = await response.json();
 
-          // Success: refresh data and show toast?
-          fetchRecords();
-          newProverEndpoint = '';
-        }else {
-          // Show user error
-          console.log('cant create the prover');
-        }
-      } else {
-        // show user error?
-      }
+      //   // Check if the endpoint is valid and contains the minProofFee and currentCapacity
+      //   if('minProofFee' in data && 'currentCapacity' in data){
+      //     console.log('creating the prover');
+      //     // Add the prover to the DB
+      //     const newProverRecord = await pb.collection('prover_endpoints').create({
+      //       url: newProverEndpoint,
+      //     });
+
+      //     // Success: refresh data and show toast?
+      //     fetchRecords();
+      //     newProverEndpoint = '';
+      //   }else {
+      //     // Show user error
+      //     console.log('cant create the prover');
+      //   }
+      // } else {
+      //   // show user error?
+      // }
     } catch (error) {
       console.error(error);
+      // Show error as a toast message
     }
   }
 
