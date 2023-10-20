@@ -5,10 +5,6 @@
   import ProverMarket from './routes/ProverMarket.svelte';
 
   export let url="";
-  const routes = {
-    "/": Home,
-    "/provers": ProverMarket,
-  };
 
   // Change the document body data-theme value on theme changes
   const body = document.body;
