@@ -1,25 +1,22 @@
 <script lang="ts">
-  import { link } from "svelte-spa-router";
+  import { Link } from "svelte-routing";
   import GlyphBlank from "../assets/GlyphBlank.png";
   import TaikoHeart from "../assets/TaikoHeart.png";
   import MilestonesAsset from "../assets/Milestones.png";
 </script>
 
-<a
-  href="/dashboard"
-  use:link
-  class="flex flex-col relative items-center pt-4 md:pt-4"
->
+<Link to="/dashboard" class="flex flex-col relative items-center pt-4 md:pt-4">
   <div class="text-center relative">
     <img src={GlyphBlank} class="taikoImg mx-auto h-64" alt="" />
   </div>
   <h1 class="font-bold text-3xl text-[#ffad12]">dojo node</h1>
-  <div
-    class="absolute text-sm font-semibold bottom-8 opacity-80 text-[#ffad12]"
-  >
+  <div class="absolute text-sm font-semibold bottom-8 opacity-80 text-[#ffad12]">
     click to enter
   </div>
-</a>
+</Link>
+<Link to="/provers" class="flex flex-col relative items-center pt-4 md:pt-4">
+  <h1 class="font-bold text-2xl text-[#ffad12]">prover market</h1>
+</Link>
 
 <img src={MilestonesAsset} class="mt-8 hidden md:block" alt="" />
 <div

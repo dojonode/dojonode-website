@@ -1,7 +1,5 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
-import polyfillNode from "rollup-plugin-polyfill-node";
-import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +13,6 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5173,
   },
-  plugins: [svelte(), VitePWA()],
+  plugins: [svelte()],
   base: "/",
 });

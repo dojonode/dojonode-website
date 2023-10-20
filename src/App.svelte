@@ -1,26 +1,14 @@
 <script lang="ts">
-  import { wrap } from "svelte-spa-router/wrap";
-  import Router from "svelte-spa-router";
-  import Dashboard from "./routes/Dashboard.svelte";
+  import { Router, Route } from "svelte-routing";
   import Home from "./routes/Home.svelte";
   import { currentTheme } from "./components/ThemeSwitcher.svelte";
   import ProverMarket from './routes/ProverMarket.svelte';
 
+  export let url="";
   const routes = {
     "/": Home,
-    "/dashboard": Dashboard,
     "/provers": ProverMarket,
   };
-  // const routes = {
-  //   "/": wrap({
-  //     component: Home,
-  //     userData: {},
-  //   }),
-  //   "/dashboard": wrap({
-  //     component: Dashboard,
-  //     userData: {},
-  //   }),
-  // };
 
   // Change the document body data-theme value on theme changes
   const body = document.body;
@@ -30,7 +18,12 @@
 </script>
 
 <main class="px-2 md:px-6">
-  <Router {routes} />
+  <Router {url}>
+    <div>
+      <Route path="/"><Home /></Route>
+      <Route path="provers" component={ProverMarket} />
+    </div>
+  </Router>
 </main>
 
 <style global lang="postcss">
