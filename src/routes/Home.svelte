@@ -5,7 +5,7 @@
   import MilestonesAsset from "../assets/Milestones.png";
 </script>
 
-<Link to="/dashboard" class="flex flex-col relative items-center pt-4 md:pt-4">
+<a href="http://dashboard.dojonode.xyz" class="flex flex-col relative items-center pt-4 md:pt-4">
   <div class="text-center relative">
     <img src={GlyphBlank} class="taikoImg mx-auto h-64" alt="" />
   </div>
@@ -13,10 +13,7 @@
   <div class="absolute text-sm font-semibold bottom-8 opacity-80 text-[#ffad12]">
     click to enter
   </div>
-</Link>
-<Link to="/provers" class="flex flex-col relative items-center pt-4 md:pt-4">
-  <h1 class="font-bold text-2xl text-[#ffad12]">prover market</h1>
-</Link>
+</a>
 
 <img src={MilestonesAsset} class="mt-8 hidden md:block" alt="" />
 <div
