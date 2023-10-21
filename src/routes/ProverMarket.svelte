@@ -4,56 +4,23 @@
   let records: any[] = [];
   let provers: any[] = [];
   let newProverEndpoint;
-  const pb = new PocketBase(import.meta.env.VITE_PB_URI);
+  const pb = new PocketBase("https://provers.dojonode.xyz");
 
   async function fetchRecords() {
-    const authData = await pb.collection('users').authWithPassword(
-      import.meta.env.VITE_PB_USER,
-      import.meta.env.VITE_PB_PASSWORD
-    );
+    const authData = await pb.collection('users').authWithPassword("dojonode", "testing12345");
 
     // reset the records array
     records = [];
     // you can also fetch all records at once via getFullList
-    records = await pb.collection("prover_endpoints").getFullList({
-      sort: "-created",
-    });
-    fetchAllData();
-  }
-  fetchRecords();
-
-  // Define an async function to fetch data for a single record
-  async function fetchDataForRecord(record) {
-    try {
-      const response = await fetch(`${record.url}/status`);
-      if (response.ok) {
-        const data = await response.json();
-        return {
-          url: record.url,
-          minimumGas: data.minProofFee,
-          currentCapacity: data.currentCapacity,
-        };
-      } else {
-        throw new Error(`Request failed with status: ${response.status}`);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  // Iterate through records and fetch data for each
-  async function fetchAllData() {
-    // reset the previous array
-    provers = [];
-
-    for (const record of records) {
-      const result = await fetchDataForRecord(record);
-      if(result != undefined)
-        // stores the provers in a set, so only unique values are stored
-        provers = [...provers, result];
-    }
+    // records = await pb.collection("prover_endpoints").getFullList({
+    //   sort: "-created",
+    // });
+    provers = await pb.send('/validProvers', {});
     provers.sort((a,b) => b.currentCapacity - a.currentCapacity);
   }
+
+  fetchRecords();
+
 
   async function addProverEndpoint(){
     try {
@@ -65,37 +32,13 @@
         return;
       }
       // Add the prover to the DB
-      const newProverRecord = await pb.collection('prover_endpoints').create({
+      await pb.collection('prover_endpoints').create({
         url: newProverEndpoint,
       });
 
       // Success: refresh data and show toast?
       fetchRecords();
       newProverEndpoint = '';
-
-      // Moved to database hook
-      // const response = await fetch(`${newProverEndpoint}/status`);
-      // if (response.ok) {
-      //   const data = await response.json();
-
-      //   // Check if the endpoint is valid and contains the minProofFee and currentCapacity
-      //   if('minProofFee' in data && 'currentCapacity' in data){
-      //     console.log('creating the prover');
-      //     // Add the prover to the DB
-      //     const newProverRecord = await pb.collection('prover_endpoints').create({
-      //       url: newProverEndpoint,
-      //     });
-
-      //     // Success: refresh data and show toast?
-      //     fetchRecords();
-      //     newProverEndpoint = '';
-      //   }else {
-      //     // Show user error
-      //     console.log('cant create the prover');
-      //   }
-      // } else {
-      //   // show user error?
-      // }
     } catch (error) {
       console.error(error);
       // Show error as a toast message
