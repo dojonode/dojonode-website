@@ -137,7 +137,7 @@
   </p>
   <p>wolfez and helios</p>
   <div class="flex items-center justify-center mt-2">
-    <a href="https://github.com/wolfderechter/taiko-node-dashboard">
+    <a href="https://github.com/wolfderechter/taiko-node-dashboard" target="_blank">
       <span class="github-icon">
         <svg
         xmlns="http://www.w3.org/2000/svg"
