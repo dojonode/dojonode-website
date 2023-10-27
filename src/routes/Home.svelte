@@ -7,14 +7,14 @@
 
 <a href="http://dashboard.dojonode.xyz" class="flex flex-col relative items-center pt-4 md:pt-4">
   <div class="text-center relative">
-    <img src={GlyphBlank} class="taikoImg mx-auto h-64" alt="" />
+    <img src={GlyphBlank} class="taikoImg mx-auto h-64" alt="Japanese gate icon" />
   </div>
   <h1 class="font-bold text-3xl text-[#ffad12]">dojo node</h1>
   <div class="absolute text-sm font-semibold bottom-8 opacity-80 text-[#ffad12]">
     click to enter
   </div>
 </a>
-<img src={MilestonesAsset} class="mt-8 hidden md:block" alt="" />
+<img src={MilestonesAsset} class="mt-8 hidden md:block" alt="Three japanese gates, for each milestone" />
 <div
   class="flex flex-col items-baseline space-y-8 md:space-y-0 md:flex-row md:justify-center md:space-x-16 mt-8 md:mt-0 w-[90%] m-auto text-[#a52519] font-medium"
   >
