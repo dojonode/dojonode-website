@@ -218,14 +218,12 @@
 	}
 
 	.card {
-		/* TODO: use twc-colors */
 		background-color: hsl(var(--twc-cardBackgroundColor));
 		border-radius: 30px;
 		padding: 10px 20px;
 	}
 
 	.button {
-		/* TODO: use twc-colors */
 		background-color: hsl(var(--twc-cardBackgroundColor));
 		border-radius: 30px;
 		padding: 10px 20px;
