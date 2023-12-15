@@ -16,14 +16,12 @@
 	import ThemeSwitcher, { currentTheme } from '$lib/ThemeSwitcher.svelte';
 
   let currentThemeValue = '';
-	// Check if running on the client side
-	if (typeof window !== 'undefined') {
-		// Change the document body data-theme value on theme changes
-		currentTheme.subscribe((value) => {
-			document.body.setAttribute('data-theme', value);
-      currentThemeValue = value;
-		});
-	}
+
+  // Change the document body data-theme value on theme changes
+  currentTheme.subscribe((value) => {
+    document.body.setAttribute('data-theme', value);
+    currentThemeValue = value;
+  });
 
 	let showSplash = false;
 
