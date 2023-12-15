@@ -15,7 +15,7 @@
 </div>
 
 <style>
-  #app {
+  .app {
     font-family: "Jost", sans-serif;
     background-color: hsl(var(--twc-backgroundColor));
   }

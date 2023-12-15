@@ -19,6 +19,7 @@ export default {
         cardSubBodyColor: "#9A989F",
         settingsAccentColor: "#E0E7EC",
         settingsBtnColor: "#9baab2",
+        glowColor: "#0000004C",
       },
       light: {
         primaryColor: "#e81899",
@@ -34,6 +35,7 @@ export default {
         cardSubBodyColor: "#9A989F",
         settingsAccentColor: "#E0E7EC",
         settingsBtnColor: "#9baab2",
+        glowColor: "#0000004C",
       },
       dark: {
         primaryColor: "#e81899",
@@ -49,6 +51,7 @@ export default {
         cardSubBodyColor: "#BDC0BA",
         settingsAccentColor: "#707D75",
         settingsBtnColor: "#9baab2",
+        glowColor: "#ffffffb3",
       },
     })
   ],
