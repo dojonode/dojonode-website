@@ -52,7 +52,7 @@
 
 <section>
 	<ThemeSwitcher />
-	<h1 class="text-[#5CAA80] text-2xl md:max-w-xl max-w-max">
+	<h1 class="text-[#5CAA80] text-2xl text-balance">
 		A user-friendly and visually pleasing dashboard for monitoring your Taiko node, proposer, or
 		prover.
 	</h1>
