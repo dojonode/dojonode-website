@@ -1,5 +1,6 @@
 <script>
-  import "../app.css";
+	import Footer from '$lib/Footer.svelte';
+	import '../app.css';
 </script>
 
 <div class="app">
@@ -9,17 +10,16 @@
 		<slot />
 	</main>
 
-	<!-- <footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer> -->
+	<Footer />
 </div>
 
 <style>
-  .app {
-    font-family: "Jost", sans-serif;
-    background-color: hsl(var(--twc-backgroundColor));
-  }
-  main {
-    min-height: 100vh;
-  }
+	.app {
+		font-family: 'Jost', sans-serif;
+		background-color: hsl(var(--twc-backgroundColor));
+		overflow: hidden;
+	}
+	main {
+		min-height: 100vh;
+	}
 </style>
