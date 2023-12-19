@@ -8,6 +8,7 @@
 	import HeaderImage from '$lib/images/Header.png';
 	import KarateIcon from '$lib/images/icons/Karate.png';
 	import GearIcon from '$lib/images/icons/Gear.png';
+	import NoteIcon from '$lib/images/icons/Note.png';
 	import FlagIcon from '$lib/images/icons/Flag.svg';
 	import AbacusIcon from '$lib/images/icons/Abacus.png';
 	import MapIcon from '$lib/images/icons/Map.png';
@@ -45,14 +46,13 @@
 	</button>
 {/if}
 
-<header class="flex justify-center">
-  <!-- TODO: change this width to 500px? -->
-	<img src={HeaderImage} class="w-[50%] my-8" alt="dojo node header with trees and the logo" />
+<header class="flex justify-center w-[90%] m-auto">
+  <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto my-8" alt="dojo node header with trees and the logo" />
 </header>
 
 <section>
 	<ThemeSwitcher />
-	<h1 class="text-[#5CAA80] text-2xl">
+	<h1 class="text-[#5CAA80] text-2xl md:max-w-xl max-w-max">
 		A user-friendly and visually pleasing dashboard for monitoring your Taiko node, proposer, or
 		prover.
 	</h1>
@@ -62,12 +62,14 @@
 
 	<div class="flex md:flex-row flex-col items-center mt-16 gap-16">
 		<div class="flex flex-col items-center">
-      <div>
-        <span class="text-[#5CAA80] font-bold">dojo</span>
-        <object title="dojo flag" class="icon-big" type="image/svg+xml" data={FlagIcon}></object>
-      </div>
+      <a href="http://dashboard.dojonode.xyz" target="_blank">
+        <span>
+          <span class="text-[#5CAA80] font-bold">dojo</span>
+          <img src={FlagIcon} class="icon-big" alt="dojo flag">
+        </span>
+      </a>
 
-			<div class="card text-left mt-8 max-w-[15rem]">
+			<div class="card text-left mt-8 mb-2 max-w-[20rem]">
 				<h1 class="font-bold">node dashboard</h1>
 				<h2 class="-mt-2">the main training area</h2>
 
@@ -92,15 +94,15 @@
 				</div>
 			</div>
 		</div>
-
+    <!-- 7 top , left 3 -->
 		<div class="stacked-thumbnails">
-      <img src={DojoLight} class="w-[250px] absolute top-16 left-0 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="dojo dashboard thumbnail in light mode">
-      <img src={DojoDark} class="w-[250px] absolute top-32 left-28" alt="dojo dashboard thumbnail in dark mode">
+      <img src={DojoLight} class="md:w-[350px] w-[250px] absolute top-16 left-4 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="dojo dashboard thumbnail in light mode">
+      <img src={DojoDark} class="md:w-[350px] w-[250px] absolute top-28 left-28" alt="dojo dashboard thumbnail in dark mode">
 		</div>
 	</div>
 
 	<h1 class="text-[#5CAA80] mt-16 text-2xl mb-4">get to know your node in 3 easy steps</h1>
-	<div class="card w-[125%] md:w-auto">
+	<div class="card">
 		<div class="flex md:flex-row flex-col items-start">
 			<!-- left -->
 			<div class="text-left">
@@ -133,7 +135,7 @@
 			<!-- right -->
 			<!-- <div> -->
 				<div class="flex items-start text-left my-6 md:max-w-[20vw]">
-					<img src={MapIcon} class="icon mr-4" alt="red karate uniform icon" />
+					<img src={NoteIcon} class="icon mr-4" alt="red karate uniform icon" />
 					<div class="flex flex-col items-start">
 						<span class="card-bold font-bold">bonus - get the full experience:</span>
 						<span class="text-left md:max-w-[15vw]"
@@ -148,9 +150,9 @@
 	</div>
 
 	<!-- Buttons line -->
-	<div class="mt-16 mb-20">
-		<a href="http://dashboard.dojonode.xyz" target="_blank" class="button mr-2">start monitoring</a>
-		<a href="https://github.com/dojonode" target="_blank" class="button ml-2">visit our github</a>
+	<div class="mt-12 flex md:flex-row flex-col sm:gap-16 gap-5">
+		<a href="http://dashboard.dojonode.xyz" target="_blank" class="button">start monitoring</a>
+		<a href="https://github.com/dojonode" target="_blank" class="button">visit our github</a>
 	</div>
 </section>
 
@@ -163,7 +165,7 @@
         <object title="tatami flag" class="icon-big" type="image/svg+xml" data={FlagIcon}></object>
       </div>
 
-			<div class="card text-left mt-8 max-w-[15rem]">
+			<div class="card text-left mt-8 mb-2 max-w-[20rem]">
 				<h1 class="font-bold">prover market</h1>
 				<h2 class="-mt-2">specialized competition</h2>
 
@@ -185,8 +187,8 @@
 		</div>
 
 		<div class="stacked-thumbnails">
-      <img src={TatamiLight} class="w-[250px] absolute top-16 left-0 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="tatami provermarket thumbnail in light mode">
-      <img src={TatamiDark} class="w-[250px] absolute top-32 left-28" alt="tatami provermarket thumbnail in dark mode">
+      <img src={TatamiLight} class="md:w-[350px] w-[250px] absolute top-16 left-4 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="tatami provermarket thumbnail in light mode">
+      <img src={TatamiDark} class="md:w-[350px] w-[250px] absolute top-28 left-28" alt="tatami provermarket thumbnail in dark mode">
 		</div>
 	</div>
 </section>
@@ -204,6 +206,12 @@
 		margin-right: auto;
 		text-align: center;
 	}
+
+  @media only screen and (max-width: 600px) {
+    section {
+      width: 90%;
+    }
+  }
 
 	#splashPage {
 		position: fixed;
@@ -249,6 +257,7 @@
     height: 400px;
     position: relative;
     margin-bottom: 2rem;
+    max-width: 100vw;
   }
   .stacked-thumbnails img{
     box-shadow: hsl(var(--twc-glowColor)) 0px 1px 1px 0px inset, hsl(var(--twc-glowColor)) 0px 15px 60px -30px;
