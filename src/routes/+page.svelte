@@ -30,7 +30,6 @@
 	let showSplash = true;
 
 	function hideSplash() {
-		console.log('splash hided');
 		showSplash = false;
 	}
 </script>
