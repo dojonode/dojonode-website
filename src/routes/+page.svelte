@@ -9,7 +9,10 @@
 	import KarateIcon from '$lib/images/icons/Karate.png';
 	import GearIcon from '$lib/images/icons/Gear.png';
 	import NoteIcon from '$lib/images/icons/Note.png';
-	import FlagIcon from '$lib/images/icons/Flag.svg';
+	import DojoScrollIcon from '$lib/images/icons/DojoScroll.svg';
+	import KamizaScrollIcon from '$lib/images/icons/KamizaScroll.svg';
+	import TatamiScrollIcon from '$lib/images/icons/TatamiScroll.svg';
+	import ZaScrollIcon from '$lib/images/icons/ZaScroll.svg';
 	import AbacusIcon from '$lib/images/icons/Abacus.png';
 	import MapIcon from '$lib/images/icons/Map.png';
 	import PackageIcon from '$lib/images/icons/Package.png';
@@ -24,7 +27,7 @@
     currentThemeValue = value;
   });
 
-	let showSplash = false;
+	let showSplash = true;
 
 	function hideSplash() {
 		console.log('splash hided');
@@ -47,7 +50,9 @@
 {/if}
 
 <header class="flex justify-center w-[90%] m-auto">
-  <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto my-8" alt="dojo node header with trees and the logo" />
+  <a href="/">
+    <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto my-8" alt="dojo node header with trees and the logo" />
+  </a>
 </header>
 
 <section>
@@ -65,7 +70,7 @@
       <a href="http://dashboard.dojonode.xyz" target="_blank">
         <span>
           <span class="text-[#5CAA80] font-bold">dojo</span>
-          <img src={FlagIcon} class="icon-big" alt="dojo flag">
+          <img src={DojoScrollIcon} class="icon-big" alt="dojo flag">
         </span>
       </a>
 
@@ -160,10 +165,12 @@
 <section>
 	<div class="flex md:flex-row flex-col items-center mt-16 gap-16 mb-16">
 		<div class="flex flex-col items-center">
-      <div>
-        <span class="text-[#5CAA80] font-bold">tatami</span>
-        <object title="tatami flag" class="icon-big" type="image/svg+xml" data={FlagIcon}></object>
-      </div>
+      <a href="/tatami">
+        <span>
+          <span class="text-[#5CAA80] font-bold">tatami</span>
+          <img src={TatamiScrollIcon} class="icon-big" alt="tatami flag">
+        </span>
+      </a>
 
 			<div class="card text-left mt-8 mb-2 max-w-[20rem]">
 				<h1 class="font-bold">prover market</h1>
@@ -219,7 +226,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-
+    z-index: 999;
 		cursor: pointer;
 	}
 
