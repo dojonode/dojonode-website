@@ -20,6 +20,7 @@ export default {
         settingsAccentColor: "#E0E7EC",
         settingsBtnColor: "#9baab2",
         glowColor: "#0000004C",
+        themeSwitcherColor: "#F4AB9F",
       },
       light: {
         primaryColor: "#e81899",
@@ -36,6 +37,7 @@ export default {
         settingsAccentColor: "#E0E7EC",
         settingsBtnColor: "#9baab2",
         glowColor: "#0000004C",
+        themeSwitcherColor: "#F4AB9F",
       },
       dark: {
         primaryColor: "#e81899",
@@ -46,12 +48,13 @@ export default {
         nodeTypesColorActive: "#E81899",
         progressBarFillColor: "#E13A8C",
         progressBarBackgroundColor: "#707D75",
-        cardBackgroundColor: "#F4F4F4",
+        cardBackgroundColor: "#444444",
         cardTitleColor: "#ec4899",
         cardSubBodyColor: "#BDC0BA",
         settingsAccentColor: "#707D75",
         settingsBtnColor: "#9baab2",
         glowColor: "#ffffffb3",
+        themeSwitcherColor: "#F4AB9F",
       },
     })
   ],

@@ -48,14 +48,18 @@
 	</button>
 {/if}
 
-<header class="flex justify-center w-[90%] m-auto">
-  <a href="/">
-    <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto my-8" alt="dojo node header with trees and the logo" />
-  </a>
+<header class="flex flex-col items-center justify-center w-[90%] m-auto">
+  <span>
+    <a href="/">
+      <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto mt-8" alt="dojo node header with trees and the logo" />
+    </a>
+    <div class="w-[60px] ml-auto mr-8 lg:mb-12 md:mb-4 mb-2">
+      <ThemeSwitcher />
+    </div>
+  </span>
 </header>
 
 <section>
-	<ThemeSwitcher />
 	<h1 class="text-[#5CAA80] text-2xl text-balance">
 		A user-friendly and visually pleasing dashboard for monitoring your Taiko node, proposer, or
 		prover.

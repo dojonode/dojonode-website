@@ -18,30 +18,30 @@
 
 <div class="modal shadow-md flex content-between items-center justify-around flex-row">
 			<div class="w-[85px]">
-				<h3 class="modal-title font-bold text-[#E53325]">prover</h3>
+				<h3 class="modal-title font-bold text-xl text-[#E53325]">prover</h3>
 				<img src={KarateIcon} alt="icon" />
 			</div>
 
-      <div class="flex flex-col items-start mt-4 w-[150px] ml-auto card-subbody overflow-clip">
+      <div class="flex flex-col items-start mt-4 w-[150px] ml-auto card-subbody overflow-clip gap-2">
         <div class="flex flex-row items-center">
           <img src={TruckIcon} class="icon-small w-8 mr-2" alt="red karate uniform icon" />
           <div class="flex flex-col text-left">
             <p class="">capacity</p>
-            <p class="text-[hsl(var(--twc-cardSubBodyColor))]">7</p>
+            <p class="text-[hsl(var(--twc-cardSubBodyColor))]">{endpoint.currentCapacity}</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
           <img src={TicketIcon} class="icon-small w-8 mr-2" alt="red karate uniform icon" />
           <div class="flex flex-col text-left">
             <p class="">min proof fee</p>
-            <p class="text-[hsl(var(--twc-cardSubBodyColor))]">9 wei</p>
+            <p class="text-[hsl(var(--twc-cardSubBodyColor))]">{endpoint.minimumGas} wei</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
           <img src={MapIcon} class="icon-small w-8 mr-2" alt="red karate uniform icon" />
           <div class="flex flex-col text-left">
             <p class="">address</p>
-            <p class="truncate text-[hsl(var(--twc-cardSubBodyColor))]">https://192.168.20.1:9876</p>
+            <p class="truncate text-[hsl(var(--twc-cardSubBodyColor))]">{endpoint.url}</p>
           </div>
         </div>
       </div>
