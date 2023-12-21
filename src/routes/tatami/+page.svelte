@@ -139,8 +139,7 @@
 </section>
 
 <section>
-  <div class="flex md:flex-row flex-col w-full justify-around items-center">
-    <!-- TODO: md:items-center check fullscreen effect of this? -->
+  <div class="flex md:flex-row flex-col max-w-[820px] w-full justify-around items-center">
     <div class="flex md:flex-col w-full md:w-auto flex-row-reverse md:items-center items-start">
       <button class="flex flex-col items-center md:mb-6">
         <img src={SubmitIcon} class="w-8 mb-2" alt="red karate uniform icon" />
