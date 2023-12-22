@@ -1,25 +1,36 @@
 <script>
-	// @ts-nocheck
-
-	import KarateIcon from '$lib/images/icons/Karate.png';
+	import KarateRedIcon from '$lib/images/icons/KarateRed.png';
+	import KarateBlueIcon from '$lib/images/icons/KarateBlue.png';
+	import KaratePinkIcon from '$lib/images/icons/KaratePink.png';
+	import KarateGreenIcon from '$lib/images/icons/KarateGreen.png';
+	import KarateYellowIcon from '$lib/images/icons/KarateYellow.png';
 	import TruckIcon from '$lib/images/icons/Truck.png';
 	import TicketIcon from '$lib/images/icons/Ticket.png';
 	import MapIcon from '$lib/images/icons/Map.png';
 
-	// type Endpoint = {
-	//   url: string;
-	//   capacity: number;
-	//   minimumProofFee: number;
-	// };
 
-	// @ts-ignore
 	export let endpoint;
+  let iconSrc
+
+  $: {
+    if (endpoint.currentCapacity === 0) {
+      iconSrc = KarateRedIcon;
+    } else if (endpoint.currentCapacity >= 1 && endpoint.currentCapacity <= 2) {
+      iconSrc = KarateGreenIcon;
+    } else if (endpoint.currentCapacity >= 3 && endpoint.currentCapacity <= 4) {
+      iconSrc = KarateYellowIcon;
+    } else if (endpoint.currentCapacity >= 5 && endpoint.currentCapacity <= 6) {
+      iconSrc = KarateBlueIcon;
+    } else {
+      iconSrc = KaratePinkIcon;
+    }
+  }
 </script>
 
 <div class="modal shadow-md flex content-between items-center justify-around flex-row">
 			<div class="w-[85px]">
 				<h3 class="modal-title font-bold text-xl text-[#E53325]">prover</h3>
-				<img src={KarateIcon} alt="icon" />
+				<img src={iconSrc} alt="icon" />
 			</div>
 
       <div class="flex flex-col items-start mt-4 w-[150px] ml-auto card-subbody overflow-clip gap-2">

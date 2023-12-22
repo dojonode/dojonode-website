@@ -7,7 +7,6 @@
 	import TatamiDark from '$lib/images/TatamiDark.png';
 	import TatamiLight from '$lib/images/TatamiLight.png';
 	import HeaderImage from '$lib/images/Header.png';
-	import KarateIcon from '$lib/images/icons/Karate.png';
 	import GearIcon from '$lib/images/icons/Gear.png';
 	import NoteIcon from '$lib/images/icons/Note.png';
 	import DojoScrollIcon from '$lib/images/icons/DojoScroll.svg';
@@ -22,15 +21,19 @@
 	import ThemeSwitcher, { currentTheme } from '$lib/ThemeSwitcher.svelte';
 	import ProverCard from '$lib/ProverCard.svelte';
   import TruckIcon from '$lib/images/icons/Truck.png';
+  import CheckMarkIcon from '$lib/images/icons/CheckMark.png';
 	import TicketIcon from '$lib/images/icons/Ticket.png';
 	import CopyIcon from '$lib/images/icons/Copy.png';
 	import SubmitIcon from '$lib/images/icons/Submit.png';
 
   let records = [];
   let provers = [];
-  let newProverEndpoint;
+  let newProverEndpoint = "";
+  let newProverEndpointError = "";
+  let newProverEndpointSuccess = "";
   let isDescending = true;
   let sortValue = "currentCapacity";
+  let isCopied = false;
 
   const pb = new PocketBase("https://provers.dojonode.xyz");
 
@@ -51,11 +54,14 @@
 
   async function addProverEndpoint(){
     try {
+      if(newProverEndpoint === "") return;
+      newProverEndpointError = "";
+
       // Remove trailing slashes
       newProverEndpoint = newProverEndpoint.replace(/\/+$/, '');
       // if endpoint already exists, just exit
       if(endpointExists(newProverEndpoint)) {
-        // TODO: maybe show toast message?
+        newProverEndpointError = "endpoint already exists!";
         return;
       }
       // Add the prover to the DB
@@ -66,9 +72,10 @@
       // Success: refresh data and show toast?
       fetchRecords();
       newProverEndpoint = '';
+      newProverEndpointSuccess = 'endpoint successfully added!'
     } catch (error) {
       console.error(error);
-      // Show error as a toast message
+      newProverEndpointError = "endpoint is not valid or reachable!"
     }
   }
 
@@ -76,9 +83,37 @@
     return provers.find(prover => prover.url === url) !== undefined;
   }
 
+  function copyProverEndpoints(){
+    let proversCommaSeparated = provers.filter(p => p.currentCapacity > 0).map(p => p.url).join(',');
+    if (!navigator.clipboard){
+        // use old commandExec() way
+        const textArea = document.createElement("textarea");
+        textArea.value = proversCommaSeparated;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        setCopiedState();
+    } else{
+        console.log('new way');
+        navigator.clipboard.writeText(proversCommaSeparated).then(() => setCopiedState())
+          .catch(
+            function() {
+                // error
+                console.error("could not copy to clipboard!");
+          });
+    }
+  }
+
+  function setCopiedState() {
+    isCopied = true;
+    setTimeout(() => {
+      isCopied = false;
+    }, 3000);
+  }
+
   function sortData(column) {
-    console.log('sorting:', column, isDescending);
-    console.log(provers);
     if (sortValue === column) {
       isDescending = !isDescending;
     } else {
@@ -91,8 +126,6 @@
     ? b[column] - a[column]
     : a[column] - b[column]
     );
-    console.log(provers);
-    console.log('sorting:', column, isDescending);
   }
 
   // Change the document body data-theme value on theme changes
@@ -140,36 +173,50 @@
 
 <section>
   <div class="flex md:flex-row flex-col max-w-[820px] w-full justify-around items-center">
-    <div class="flex md:flex-col w-full md:w-auto flex-row-reverse md:items-center items-start">
-      <button class="flex flex-col items-center md:mb-6">
-        <img src={SubmitIcon} class="w-8 mb-2" alt="red karate uniform icon" />
-        <span class="hidden md:block">
-          submit endpoint
-        </span>
-      </button>
-      <input
-      class="shadow appearance-none rounded-full text-[hsl(var(--twc-cardSubBodyColor))] bg-[hsl(var(--twc-settingsAccentColor))] w-full px-3 focus:outline-none focus:shadow-outline leading-none"
-      type="text"
-      bind:value={newProverEndpoint}
-    />
+    <div class="flex flex-col">
+      <div class="flex md:flex-col w-full md:w-auto flex-row-reverse md:items-center items-start">
+        <button class="flex flex-col items-center md:mb-6" on:click={addProverEndpoint}>
+          <img src={SubmitIcon} class="w-8 mb-2" alt="submit postal icon" />
+          <span class="hidden md:block">
+            submit endpoint
+          </span>
+        </button>
+        <input
+        class="shadow appearance-none rounded-full text-[hsl(var(--twc-cardSubBodyColor))] bg-[hsl(var(--twc-settingsAccentColor))] w-full px-3 focus:outline-none focus:shadow-outline leading-none"
+        on:submit|preventDefault={addProverEndpoint}
+        type="text"
+        bind:value={newProverEndpoint}
+        />
+      </div>
+
+      {#if newProverEndpointError != ""}
+      <span class="text-[#E53325] text-sm mb-3 md:mt-2 -mt-2">{newProverEndpointError}</span>
+      {/if}
+      {#if newProverEndpointSuccess != ""}
+      <span class="text-[#5CAA80] text-sm mb-3 md:mt-2 -mt-2">{newProverEndpointSuccess}</span>
+      {/if}
     </div>
     <div class="flex md:flex-col items-center w-full md:w-auto justify-between">
       <div>
-        <button class="flex flex-col items-center md:mb-6">
-          <img src={CopyIcon} class="w-8 md:mb-2" alt="red karate uniform icon" />
+        <button class="flex flex-col items-center md:mb-6" on:click={copyProverEndpoints}>
+          {#if isCopied}
+            <img src={CheckMarkIcon} class="w-8 md:mb-2" alt="check mark icon" />
+          {:else}
+            <img src={CopyIcon} class="w-8 md:mb-2" alt="red karate uniform icon" />
+          {/if}
           <span class="hidden md:block">
-            copy all
-          </span >
+            {isCopied ? 'copied!' : 'copy All'}
+          </span>
         </button>
       </div>
       <div class="flex gap-2">
         <button class="flex w-[65px] items-center bg-[hsl(var(--twc-settingsAccentColor))] rounded-full p-2" on:click={() => sortData("currentCapacity")}>
-          <img src={TruckIcon} class="w-6 mr-2" alt="red karate uniform icon" />
-          <img src={sortValue === "currentCapacity" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 {(isDescending && sortValue === "currentCapacity") ? 'rotate-180' : ''}" alt="red karate uniform icon" />
+          <img src={TruckIcon} class="w-6 mr-2" alt="truck icon" />
+          <img src={sortValue === "currentCapacity" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "currentCapacity") ? 'rotate-180' : ''}" alt="sorting arrow icon" />
         </button>
         <button class="flex w-[65px] items-center bg-[hsl(var(--twc-settingsAccentColor))] rounded-full p-2" on:click={() => sortData("minimumGas")}>
-          <img src={TicketIcon} class="w-6 mr-2" alt="red karate uniform icon" />
-          <img src={sortValue === "minimumGas" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 {(isDescending && sortValue === "minimumGas") ? 'rotate-180' : ''}" alt="red karate uniform icon" />
+          <img src={TicketIcon} class="w-6 mr-2" alt="ticket icon" />
+          <img src={sortValue === "minimumGas" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "minimumGas") ? 'rotate-180' : ''}" alt="sorting arrow icon" />
         </button>
       </div>
 
@@ -246,4 +293,9 @@
     color: hsl(var(--twc-cardSubBodyColor));
     line-height: 1;
   }
+
+  .sorting-arrow{
+    transition: transform 0.3s;
+  }
+
 </style>

@@ -6,7 +6,7 @@
 	import TatamiDark from '$lib/images/TatamiDark.png';
 	import TatamiLight from '$lib/images/TatamiLight.png';
 	import HeaderImage from '$lib/images/Header.png';
-	import KarateIcon from '$lib/images/icons/Karate.png';
+	import KarateIcon from '$lib/images/icons/KarateRed.png';
 	import GearIcon from '$lib/images/icons/Gear.png';
 	import NoteIcon from '$lib/images/icons/Note.png';
 	import DojoScrollIcon from '$lib/images/icons/DojoScroll.svg';
