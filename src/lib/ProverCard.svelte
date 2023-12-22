@@ -1,12 +1,12 @@
 <script>
-	import KarateRedIcon from '$lib/images/icons/KarateRed.png';
-	import KarateBlueIcon from '$lib/images/icons/KarateBlue.png';
-	import KaratePinkIcon from '$lib/images/icons/KaratePink.png';
-	import KarateGreenIcon from '$lib/images/icons/KarateGreen.png';
-	import KarateYellowIcon from '$lib/images/icons/KarateYellow.png';
-	import TruckIcon from '$lib/images/icons/Truck.png';
-	import TicketIcon from '$lib/images/icons/Ticket.png';
-	import MapIcon from '$lib/images/icons/Map.png';
+	import KarateRedIcon from '$lib/images/icons/KarateRed.avif';
+	import KarateBlueIcon from '$lib/images/icons/KarateBlue.avif';
+	import KaratePinkIcon from '$lib/images/icons/KaratePink.avif';
+	import KarateGreenIcon from '$lib/images/icons/KarateGreen.avif';
+	import KarateYellowIcon from '$lib/images/icons/KarateYellow.avif';
+	import TruckIcon from '$lib/images/icons/Truck.avif';
+	import TicketIcon from '$lib/images/icons/Ticket.avif';
+	import MapIcon from '$lib/images/icons/Map.avif';
 
 
 	export let endpoint;

@@ -1,22 +1,20 @@
 <script>
-	import SplashPageImage from '$lib/images/SplashPage.png';
-	import DashboardThumbnail from '$lib/images/TemporaryThumbnail.png';
-	import DojoLight from '$lib/images/DojoLight.png';
-	import DojoDark from '$lib/images/DojoDark.png';
-	import TatamiDark from '$lib/images/TatamiDark.png';
-	import TatamiLight from '$lib/images/TatamiLight.png';
-	import HeaderImage from '$lib/images/Header.png';
-	import KarateIcon from '$lib/images/icons/KarateRed.png';
-	import GearIcon from '$lib/images/icons/Gear.png';
-	import NoteIcon from '$lib/images/icons/Note.png';
+	import DojoLight from '$lib/images/DojoLight.avif';
+	import DojoDark from '$lib/images/DojoDark.avif';
+	import TatamiDark from '$lib/images/TatamiDark.avif';
+	import TatamiLight from '$lib/images/TatamiLight.avif';
+	import HeaderImage from '$lib/images/Header.avif';
+	import KarateIcon from '$lib/images/icons/KarateRed.avif';
+	import GearIcon from '$lib/images/icons/Gear.avif';
+	import NoteIcon from '$lib/images/icons/Note.avif';
 	import DojoScrollIcon from '$lib/images/icons/DojoScroll.svg';
 	import KamizaScrollIcon from '$lib/images/icons/KamizaScroll.svg';
 	import TatamiScrollIcon from '$lib/images/icons/TatamiScroll.svg';
 	import ZaScrollIcon from '$lib/images/icons/ZaScroll.svg';
-	import AbacusIcon from '$lib/images/icons/Abacus.png';
-	import MapIcon from '$lib/images/icons/Map.png';
-	import PackageIcon from '$lib/images/icons/Package.png';
-	import LaptopIcon from '$lib/images/icons/Laptop.png';
+	import AbacusIcon from '$lib/images/icons/Abacus.avif';
+	import MapIcon from '$lib/images/icons/Map.avif';
+	import PackageIcon from '$lib/images/icons/Package.avif';
+	import LaptopIcon from '$lib/images/icons/Laptop.avif';
 	import ThemeSwitcher, { currentTheme } from '$lib/ThemeSwitcher.svelte';
 
   let currentThemeValue = '';
@@ -26,27 +24,12 @@
     document.body.setAttribute('data-theme', value);
     currentThemeValue = value;
   });
-
-	let showSplash = true;
-
-	function hideSplash() {
-		showSplash = false;
-	}
 </script>
 
 <svelte:head>
 	<title>dojo node</title>
 	<meta name="description" content="TODO:" />
 </svelte:head>
-
-{#if showSplash}
-	<button
-		id="splashPage"
-		on:click={hideSplash}
-		style={`background: url(${SplashPageImage}) center/cover`}
-	>
-	</button>
-{/if}
 
 <header class="flex flex-col items-center justify-center w-[90%] m-auto">
   <span>
@@ -73,7 +56,7 @@
       <a href="http://dashboard.dojonode.xyz" target="_blank">
         <span>
           <span class="text-[#5CAA80] font-bold">dojo</span>
-          <img src={DojoScrollIcon} class="icon-big" alt="dojo flag">
+          <img src={DojoScrollIcon} loading="lazy" class="icon-big" alt="dojo flag">
         </span>
       </a>
 
@@ -197,8 +180,8 @@
 		</div>
 
 		<div class="stacked-thumbnails">
-      <img src={TatamiLight} class="md:w-[350px] w-[250px] absolute top-16 left-4 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="tatami provermarket thumbnail in light mode">
-      <img src={TatamiDark} class="md:w-[350px] w-[250px] absolute top-28 left-28" alt="tatami provermarket thumbnail in dark mode">
+      <img src={TatamiLight} loading="lazy" class="md:w-[350px] w-[250px] absolute top-16 left-4 {currentThemeValue === "paper" ? 'z-10' : 'z-0'}" alt="tatami provermarket thumbnail in light mode">
+      <img src={TatamiDark} loading="lazy" class="md:w-[350px] w-[250px] absolute top-28 left-28" alt="tatami provermarket thumbnail in dark mode">
 		</div>
 	</div>
 </section>

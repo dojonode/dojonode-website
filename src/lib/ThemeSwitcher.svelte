@@ -1,6 +1,6 @@
 <script context="module">
-	import CremeModeIcon from '$lib/images/icons/CremeMode.png';
-	import DarkModeIcon from '$lib/images/icons/DarkMode.png';
+	import CremeModeIcon from '$lib/images/icons/CremeMode.avif';
+	import DarkModeIcon from '$lib/images/icons/DarkMode.avif';
 	import { writable } from 'svelte/store';
 	import { setLocalStorageItem, getLocalStorageItem } from '$lib/localstorage.ts';
 

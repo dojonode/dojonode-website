@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  let isRolledUp = false;
+  let isRolledUp = true;
 
   onMount(() => {
     const scrollSvg = document.getElementById('scroll-svg');
@@ -10,35 +10,65 @@
     const icon = document.getElementById('Icon');
 
     scrollSvg.addEventListener('click', () => {
-      console.log('click');
-      isRolledUp = !isRolledUp;
+      console.log('click', isRolledUp);
 
-      const rects = middle.querySelectorAll('rect');
-
-      rects.forEach(rect => {
-        // rect.style.animation = isRolledUp
-        //   ? 'shrinkHeight 0.5s ease-in-out forwards'
-        //   : 'expandHeight 0.5s ease-in-out forwards';
-        rect.classList.toggle('shrink', isRolledUp);
+      // Clean up previous classes
+      const allRects = middle.querySelectorAll('rect');
+      allRects.forEach(rect => {
+        rect.classList.remove('grow', 'shrink');
       });
-      bottom.classList.toggle('rolled', isRolledUp);
-      middle.classList.toggle('shrink', isRolledUp);
-      icon.classList.toggle('hide', isRolledUp);
+
+      bottom.classList.remove('rolled-up', 'rolled-down');
+      middle.classList.remove('grow', 'shrink');
+      icon.classList.remove('show', 'hide');
+
+      // Add new classes
+      if (isRolledUp) {
+        const rects = middle.querySelectorAll('rect');
+        rects.forEach(rect => {
+          rect.classList.add('shrink');
+        });
+        bottom.classList.add('rolled-up');
+        middle.classList.add('shrink');
+        icon.classList.add('hide');
+      } else {
+        const rects = middle.querySelectorAll('rect');
+        rects.forEach(rect => {
+          rect.classList.add('grow');
+        });
+        bottom.classList.add('rolled-down');
+        middle.classList.add('grow');
+        icon.classList.add('show');
+      }
+
+      isRolledUp = !isRolledUp;
     });
   });
 </script>
 
 <style>
-  :global(.rolled) {
-    animation: rollUp 0.5s ease-in-out forwards;
+  :global(.rolled-up) {
+    animation: rollUp 0.5s ease-in-out both;
+  }
+
+  :global(.rolled-down) {
+    animation: rollDown 0.5s ease-in-out both;
   }
 
   :global(.shrink) {
-    animation: shrinkHeight 0.5s ease-in-out forwards;
+    animation: shrinkHeight 0.5s ease-in-out both;
+  }
+
+  :global(.grow) {
+    animation: growHeight 0.5s ease-in-out both;
   }
 
   :global(.hide) {
-    animation: hideIcon 0.5s ease-in-out forwards;
+    animation: hideIcon 0.5s ease-in-out both;
+  }
+
+  :global(.show) {
+    animation: showIcon 0.5s ease-in-out both;
   }
 
   @keyframes rollUp {
@@ -47,6 +77,15 @@
     }
     to {
       transform: translateY(-120px);
+    }
+  }
+
+  @keyframes rollDown {
+    from {
+      transform: translateY(-120px);
+    }
+    to {
+      transform: translateY(10px);
     }
   }
 
@@ -59,17 +98,39 @@
     }
   }
 
+  @keyframes growHeight {
+    from {
+      height: 30px;
+    }
+    to {
+      height: 160px;
+    }
+  }
+
   @keyframes hideIcon {
     from {
       opacity: 1;
-      transform: translateY(10px);
+      transform: translateY(0);
     }
     to {
       opacity: 0;
+      transform: translateY(-100px);
+    }
+  }
+
+  @keyframes showIcon {
+    from {
+      opacity: 0;
       transform: translateY(-120px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
+
+
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <svg
@@ -172,9 +233,9 @@
   </g>
   <g id="Middle">
     <g>
-      <rect class="cls-14" x="41.59" y="56.11" width="204.82" height="144.85"/>
-      <rect class="cls-2" x="246.41" y="56.11" width="12.41" height="144.85"/>
-      <rect class="cls-2" x="29.18" y="56.11" width="12.41" height="144.85"/>
+      <rect class="cls-14" x="41.59" y="56.11" width="204.82" height="145.85"/>
+      <rect class="cls-2" x="246.41" y="56.11" width="12.41" height="145.85"/>
+      <rect class="cls-2" x="29.18" y="56.11" width="12.41" height="145.85"/>
     </g>
   </g>
   <g id="Bottom" class="">
