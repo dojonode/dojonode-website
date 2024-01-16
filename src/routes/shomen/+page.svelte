@@ -29,7 +29,7 @@
 
 <svelte:head>
 	<title>dojo node</title>
-	<meta name="description" content="TODO:" />
+	<!-- <meta name="description" content="TODO:" /> -->
 </svelte:head>
 
 <header class="flex flex-col items-center justify-center w-[90%] m-auto">
