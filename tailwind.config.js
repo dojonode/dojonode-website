@@ -6,7 +6,6 @@ export default {
   plugins: [
     createThemes({
       paper: {
-        primaryColor: "#e81899",
         secondaryColor: "#f8c4cf",
         tertiaryColor: "#808080",
         backgroundColor: "#FFF9EB",
@@ -17,13 +16,11 @@ export default {
         cardBackgroundColor: "#F4F4F4",
         cardTitleColor: "#E81899",
         cardSubBodyColor: "#9A989F",
-        settingsAccentColor: "#E0E7EC",
-        settingsBtnColor: "#9baab2",
+        inputAccentColor: "#E0E7EC",
         glowColor: "#0000004C",
         themeSwitcherColor: "#F4AB9F",
       },
       light: {
-        primaryColor: "#e81899",
         secondaryColor: "#f8c4cf",
         tertiaryColor: "#808080",
         backgroundColor: "#FFFFFD",
@@ -34,13 +31,11 @@ export default {
         cardBackgroundColor: "#F4F4F4",
         cardTitleColor: "#E81899",
         cardSubBodyColor: "#9A989F",
-        settingsAccentColor: "#E0E7EC",
-        settingsBtnColor: "#9baab2",
+        inputAccentColor: "#E0E7EC",
         glowColor: "#0000004C",
         themeSwitcherColor: "#F4AB9F",
       },
       dark: {
-        primaryColor: "#e81899",
         secondaryColor: "#f8c4cf",
         tertiaryColor: "#cecece",
         backgroundColor: "#1a1b1b",
@@ -51,8 +46,7 @@ export default {
         cardBackgroundColor: "#444444",
         cardTitleColor: "#ec4899",
         cardSubBodyColor: "#BDC0BA",
-        settingsAccentColor: "#707D75",
-        settingsBtnColor: "#9baab2",
+        inputAccentColor: "#707D75",
         glowColor: "#ffffffb3",
         themeSwitcherColor: "#F4AB9F",
       },
