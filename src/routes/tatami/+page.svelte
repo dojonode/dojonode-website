@@ -143,9 +143,9 @@
 <header class="flex justify-center w-[90%] m-auto">
   <span>
     <a href="/">
-      <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto mt-8" alt="dojo node header with trees and the logo" />
+      <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto mt-2" alt="dojo node header with trees and the logo" />
     </a>
-    <div class="w-[60px] ml-auto mr-8 lg:mb-12 md:mb-4 mb-2">
+    <div class="w-[60px] ml-auto mr-8 lg:mb-6 md:mb-4 mb-2">
       <ThemeSwitcher />
     </div>
   </span>
@@ -176,7 +176,7 @@
           </span>
         </button>
         <input
-        class="shadow appearance-none rounded-full text-[hsl(var(--twc-cardSubBodyColor))] bg-[hsl(var(--twc-settingsAccentColor))] w-full px-3 focus:outline-none focus:shadow-outline leading-none"
+        class="shadow appearance-none rounded-full text-[hsl(var(--twc-cardSubBodyColor))] bg-[hsl(var(--twc-inputAccentColor))] w-full px-3 focus:outline-none focus:shadow-outline leading-none"
         on:submit|preventDefault={addProverEndpoint}
         type="text"
         bind:value={newProverEndpoint}
@@ -204,11 +204,11 @@
         </button>
       </div>
       <div class="flex gap-2">
-        <button class="flex w-[65px] items-center bg-[hsl(var(--twc-settingsAccentColor))] rounded-full p-2" on:click={() => sortData("currentCapacity")}>
+        <button class="flex w-[65px] items-center bg-[hsl(var(--twc-inputAccentColor))] rounded-full p-2" on:click={() => sortData("currentCapacity")}>
           <img src={TruckIcon} class="w-6 mr-2" alt="truck icon" />
           <img src={sortValue === "currentCapacity" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "currentCapacity") ? 'rotate-180' : ''}" alt="sorting arrow icon" />
         </button>
-        <button class="flex w-[65px] items-center bg-[hsl(var(--twc-settingsAccentColor))] rounded-full p-2" on:click={() => sortData("minimumGas")}>
+        <button class="flex w-[65px] items-center bg-[hsl(var(--twc-inputAccentColor))] rounded-full p-2" on:click={() => sortData("minimumGas")}>
           <img src={TicketIcon} class="w-6 mr-2" alt="ticket icon" />
           <img src={sortValue === "minimumGas" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "minimumGas") ? 'rotate-180' : ''}" alt="sorting arrow icon" />
         </button>

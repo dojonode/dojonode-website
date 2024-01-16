@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores';
 	import Footer from '$lib/Footer.svelte';
 	import '../app.css';
 </script>
@@ -10,7 +11,11 @@
 		<slot />
 	</main>
 
-	<Footer />
+  {#if $page.route.id === '/'}
+    <!-- Footer will not be included on the homepage -->
+  {:else}
+    <Footer />
+  {/if}
 </div>
 
 <style>
