@@ -11,7 +11,7 @@
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build --dotfiles"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
