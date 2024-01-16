@@ -70,11 +70,6 @@
     width: 300px;
 	}
 
-	.modal-sub-body {
-		color: hsl(var(--twc-cardSubBodyColor));
-		font-size: 14px;
-	}
-
 	@media (max-width: 750px) {
 		.modal {
 			margin: 4px;

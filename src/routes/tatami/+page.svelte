@@ -265,28 +265,9 @@
 		padding: 10px 20px;
 	}
 
-	.button {
-		background-color: hsl(var(--twc-cardBackgroundColor));
-		border-radius: 30px;
-		padding: 10px 20px;
-	}
-
-	.icon {
-		width: 30px;
-	}
-
-	.icon-small {
-		width: 15px;
-	}
-
 	.icon-big {
 		width: 100px;
 	}
-
-  .card-subbody{
-    color: hsl(var(--twc-cardSubBodyColor));
-    line-height: 1;
-  }
 
   .sorting-arrow{
     transition: transform 0.3s;
