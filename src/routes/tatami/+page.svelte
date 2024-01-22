@@ -142,7 +142,7 @@
 
 <header class="flex justify-center w-[90%] m-auto">
   <span>
-    <a href="/">
+    <a href="/shomen">
       <img src={HeaderImage} class="max-w-full max-h-[20vh] w-auto h-auto mt-2" alt="dojo node header with trees and the logo" />
     </a>
     <div class="w-[60px] ml-auto mr-8 lg:mb-6 md:mb-4 mb-2">
