@@ -26,14 +26,12 @@
   let newProverEndpointError = "";
   let newProverEndpointSuccess = "";
   let isDescending = true;
-  let sortValue = "currentCapacity";
+  let sortValue = "minimumGas";
   let isCopied = false;
 
   const pb = new PocketBase("https://provers.dojonode.xyz");
 
   async function fetchRecords() {
-    const authData = await pb.collection('users').authWithPassword("dojonode", "testing12345");
-
     // reset the records array
     records = [];
     // you can also fetch all records at once via getFullList
@@ -41,7 +39,8 @@
     //   sort: "-created",
     // });
     provers = await pb.send('/validProvers', {});
-    provers.sort((a,b) => b.currentCapacity - a.currentCapacity);
+    console.log(provers);
+    provers.sort((a,b) => b.minimumGas - a.minimumGas);
   }
 
   fetchRecords();
@@ -78,7 +77,7 @@
   }
 
   function copyProverEndpoints(){
-    let proversCommaSeparated = provers.filter(p => p.currentCapacity > 0).map(p => p.url).join(',');
+    let proversCommaSeparated = provers.map(p => p.url).join(',');
     if (!navigator.clipboard){
         // use old commandExec() way
         const textArea = document.createElement("textarea");
@@ -130,7 +129,6 @@
 
   let endpointExample = {
     url: 'https://example.com/api',
-    capacity: 100,
     minimumProofFee: 10,
   }
 </script>
@@ -204,10 +202,10 @@
         </button>
       </div>
       <div class="flex gap-2">
-        <button class="flex w-[65px] items-center bg-[hsl(var(--twc-inputAccentColor))] rounded-full p-2" on:click={() => sortData("currentCapacity")}>
+        <!-- <button class="flex w-[65px] items-center bg-[hsl(var(--twc-inputAccentColor))] rounded-full p-2" on:click={() => sortData("currentCapacity")}>
           <img src={TruckIcon} class="w-6 mr-2" alt="truck icon" />
           <img src={sortValue === "currentCapacity" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "currentCapacity") ? 'rotate-180' : ''}" alt="sorting arrow icon" />
-        </button>
+        </button> -->
         <button class="flex w-[65px] items-center bg-[hsl(var(--twc-inputAccentColor))] rounded-full p-2" on:click={() => sortData("minimumGas")}>
           <img src={TicketIcon} class="w-6 mr-2" alt="ticket icon" />
           <img src={sortValue === "minimumGas" ? ArrowActiveIcon : ArrowIcon} class="w-4 mr-2 sorting-arrow {(isDescending && sortValue === "minimumGas") ? 'rotate-180' : ''}" alt="sorting arrow icon" />

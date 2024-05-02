@@ -4,7 +4,7 @@
 	import KaratePinkIcon from '$lib/images/icons/KaratePink.avif';
 	import KarateGreenIcon from '$lib/images/icons/KarateGreen.avif';
 	import KarateYellowIcon from '$lib/images/icons/KarateYellow.avif';
-	import TruckIcon from '$lib/images/icons/Truck.avif';
+	// import TruckIcon from '$lib/images/icons/Truck.avif';
 	import TicketIcon from '$lib/images/icons/Ticket.avif';
 	import MapIcon from '$lib/images/icons/Map.avif';
 
@@ -13,13 +13,14 @@
   let iconSrc
 
   $: {
-    if (endpoint.currentCapacity === 0) {
+    const random = Math.floor(Math.random() * 10);
+    if (random === 0) {
       iconSrc = KarateRedIcon;
-    } else if (endpoint.currentCapacity >= 1 && endpoint.currentCapacity <= 2) {
+    } else if (random >= 1 && random <= 2) {
       iconSrc = KarateGreenIcon;
-    } else if (endpoint.currentCapacity >= 3 && endpoint.currentCapacity <= 4) {
+    } else if (random >= 3 && random <= 4) {
       iconSrc = KarateYellowIcon;
-    } else if (endpoint.currentCapacity >= 5 && endpoint.currentCapacity <= 6) {
+    } else if (random >= 5 && random <= 6) {
       iconSrc = KarateBlueIcon;
     } else {
       iconSrc = KaratePinkIcon;
@@ -34,13 +35,13 @@
 			</div>
 
       <div class="flex flex-col items-start mt-4 w-[150px] ml-auto card-subbody overflow-clip gap-2">
-        <div class="flex flex-row items-center">
+        <!-- <div class="flex flex-row items-center">
           <img src={TruckIcon} class="icon-small w-8 mr-2" alt="red karate uniform icon" />
           <div class="flex flex-col text-left">
             <p class="">capacity</p>
             <p class="text-[hsl(var(--twc-cardSubBodyColor))]">{endpoint.currentCapacity}</p>
           </div>
-        </div>
+        </div> -->
         <div class="flex flex-row items-center">
           <img src={TicketIcon} class="icon-small w-8 mr-2" alt="red karate uniform icon" />
           <div class="flex flex-col text-left">
