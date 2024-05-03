@@ -1,1 +1,0 @@
-const t=""+new URL("../assets/Discord.CyauNWIU.avif",import.meta.url).href,s=""+new URL("../assets/Twitter.Bx-GKhIf.avif",import.meta.url).href,e=""+new URL("../assets/Github.DZiepNDd.avif",import.meta.url).href;export{t as D,e as G,s as T};
