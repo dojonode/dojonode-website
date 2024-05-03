@@ -39,7 +39,6 @@
     //   sort: "-created",
     // });
     provers = await pb.send('/validProvers', {});
-    console.log(provers);
     provers.sort((a,b) => b.minimumGas - a.minimumGas);
   }
 
@@ -89,7 +88,6 @@
 
         setCopiedState();
     } else{
-        console.log('new way');
         navigator.clipboard.writeText(proversCommaSeparated).then(() => setCopiedState())
           .catch(
             function() {
