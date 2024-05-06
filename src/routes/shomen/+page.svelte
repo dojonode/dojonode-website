@@ -187,6 +187,45 @@
 	</div>
 </section>
 
+<!-- Za & Kamiza section -->
+<section>
+	<div class="flex md:flex-row flex-col items-center mt-16 gap-16 mb-24">
+    <!-- Za -->
+		<div class="flex flex-row items-center gap-8">
+			<div class="card text-left mt-8 mb-2 w-64 max-w-[20rem]">
+				<h1 class="font-bold">blockchain education</h1>
+				<h2 class="-mt-2">a sitting area for discussion</h2>
+
+				<p class="mt-3 card-subbody">explore the blockchain, crypto fundamentals, and the importance of node operating</p>
+			</div>
+
+      <a href="/za">
+        <span class="block icon-big">
+          <span class="text-[#5CAA80] font-bold">za</span>
+          <img src={ZaScrollIcon} class="icon-big" alt="tatami flag">
+        </span>
+      </a>
+		</div>
+
+    <!-- Kamiza -->
+    <div class="flex flex-row items-center gap-8">
+      <a href="/kamiza">
+        <span class="block icon-big">
+          <span class="text-[#5CAA80] font-bold">Kamiza</span>
+          <img src={KamizaScrollIcon} class="icon-big" alt="kamiza flag">
+        </span>
+      </a>
+
+			<div class="card text-left mt-8 mb-2 w-56 max-w-[20rem]">
+				<h1 class="font-bold">about us</h1>
+				<h2 class="-mt-2">highest seat for instructors</h2>
+
+				<p class="mt-3 card-subbody">learn about the team behind Dojo Node, and what lead us to building everything</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <style>
 	section {
     color: hsl(var(--twc-textColor));
