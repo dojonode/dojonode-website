@@ -1,20 +1,11 @@
 <script async lang="ts">
   import PocketBase from 'pocketbase';
 	import HeaderImage from '$lib/images/Header.avif';
-	import GearIcon from '$lib/images/icons/Gear.avif';
-	import NoteIcon from '$lib/images/icons/Note.avif';
-	import DojoScrollIcon from '$lib/images/icons/DojoScroll.svg';
-	import KamizaScrollIcon from '$lib/images/icons/KamizaScroll.svg';
 	import TatamiScrollIcon from '$lib/images/icons/TatamiScroll.svg';
-	import ZaScrollIcon from '$lib/images/icons/ZaScroll.svg';
-	import AbacusIcon from '$lib/images/icons/Abacus.avif';
-	import MapIcon from '$lib/images/icons/Map.avif';
-	import PackageIcon from '$lib/images/icons/Package.avif';
 	import ArrowIcon from '$lib/images/icons/Arrow.svg';
 	import ArrowActiveIcon from '$lib/images/icons/ArrowActive.svg';
 	import ThemeSwitcher, { currentTheme } from '$lib/ThemeSwitcher.svelte';
 	import ProverCard from '$lib/ProverCard.svelte';
-  import TruckIcon from '$lib/images/icons/Truck.avif';
   import CheckMarkIcon from '$lib/images/icons/CheckMark.avif';
 	import TicketIcon from '$lib/images/icons/Ticket.avif';
 	import CopyIcon from '$lib/images/icons/Copy.avif';
@@ -25,7 +16,7 @@
   let newProverEndpoint = "";
   let newProverEndpointError = "";
   let newProverEndpointSuccess = "";
-  let isDescending = true;
+  let isDescending = false;
   let sortValue = "minimumGas";
   let isCopied = false;
 
@@ -39,7 +30,7 @@
     //   sort: "-created",
     // });
     provers = await pb.send('/validProvers', {});
-    provers.sort((a,b) => b.minimumGas - a.minimumGas);
+    provers.sort((a,b) => a.minimumGas - b.minimumGas);
   }
 
   fetchRecords();
@@ -133,7 +124,8 @@
 
 <svelte:head>
 	<title>prover market page</title>
-	<meta name="description" content="TODO:" />
+	<meta name="description" content="A prover marketplace of taiko provers where anyone can permissionless add their own prover." />
+  <meta property="og:description" content="A prover marketplace of taiko provers where anyone can permissionless add their own prover.">
 </svelte:head>
 
 <header class="flex justify-center w-[90%] m-auto">
