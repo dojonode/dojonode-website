@@ -44,7 +44,7 @@
 	<div class="mx-auto relative">
 		<span>
 			<span class="text-[#5CAA80] font-bold">za</span>
-			<img src={ZaScrollIcon} class="icon-big m-auto" alt="tatami flag" />
+			<img src={ZaScrollIcon} class="icon-big m-auto" alt="za flag" />
 		</span>
 
 		<div
@@ -63,7 +63,7 @@
 				class="flex md:flex-col w-full md:w-auto flex-row-reverse md:items-center items-start md:mt-14 mt-8"
 			>
 				<button class="flex flex-col items-center md:mb-6" on:click={null}>
-					<img src={SubmitIcon} class="w-8 mb-2" alt="submit postal icon" />
+					<img src={SubmitIcon} class="w-8 mb-2" alt="submit search icon" />
 					<span class="hidden md:block"> search all </span>
 				</button>
 				<input
@@ -84,20 +84,20 @@
 		<div class="modal shadow-md flex flex-row">
       <div class="flex flex-row items-start w-[400px] justify-evenly pt-[50px]">
         <div class="w-[70px] mr-6">
-          <img src={WalletIcon} alt="icon" />
+          <img src={WalletIcon} alt="wallet icon" />
           <h3 class="modal-title font-bold text-base text-[#E53325] m-auto">
             <span>101</span>
             <span>wallets</span>
           </h3>
         </div>
         <a href="https://www.dailymotion.com/video/k3IrB4qqGmVUJfzSjZe" target="_blank" class="w-[55px] source">
-          <img src={PictureIcon} alt="icon" />
+          <img src={PictureIcon} alt="video icon" />
           <h3 class="modal-title">
             video
           </h3>
         </a>
         <a href="https://podcasters.spotify.com/pod/show/-dojo-node-/episodes/101---Wallets-e2en33s" target="_blank" class="w-[55px] source">
-          <img src={MicrophoneIcon} alt="icon" />
+          <img src={MicrophoneIcon} alt="microphone icon" />
           <h3 class="modal-title">
             audio
           </h3>
@@ -106,20 +106,20 @@
 
       <div class="flex flex-col items-start mt-4 md:ml-10 w-[100px] overflow-clip gap-6">
         <div class="flex flex-row items-center">
-          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="seed icon" />
+          <div class="category">
             <p class="active">seed</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="sprout icon" />
+          <div class="category">
             <p class="">sprout</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="tree icon" />
+          <div class="category">
             <p class="">tree</p>
           </div>
         </div>
@@ -130,20 +130,20 @@
 		<div class="modal shadow-md flex flex-row">
       <div class="flex flex-row items-start w-[400px] justify-evenly pt-[50px]">
         <div class="w-[70px] mr-6">
-          <img src={PackageIcon} alt="icon" />
+          <img src={PackageIcon} alt="package icon" />
           <h3 class="modal-title font-bold text-base text-[#E53325] m-auto">
             <span>102</span>
             <span>blockchains</span>
           </h3>
         </div>
         <a href="https://www.dailymotion.com/video/k6IzEjprotogfuAspeo" target="_blank" class="w-[55px] source">
-          <img src={PictureIcon} alt="icon" />
+          <img src={PictureIcon} alt="video icon" />
           <h3 class="modal-title">
             video
           </h3>
         </a>
         <a href="https://podcasters.spotify.com/pod/show/-dojo-node-/episodes/102---Blockchains-e2g3ls7" target="_blank" class="w-[55px] source">
-          <img src={MicrophoneIcon} alt="icon" />
+          <img src={MicrophoneIcon} alt="microphone icon" />
           <h3 class="modal-title">
             audio
           </h3>
@@ -152,20 +152,20 @@
 
       <div class="flex flex-col items-start mt-4 md:ml-10 w-[100px] overflow-clip gap-6">
         <div class="flex flex-row items-center">
-          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
-            <p class="">seed</p>
+          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="seed icon" />
+          <div class="category">
+            <p class="active">seed</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
-            <p class="active">sprout</p>
+          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="sprout icon" />
+          <div class="category">
+            <p class="">sprout</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="tree icon" />
+          <div class="category">
             <p class="">tree</p>
           </div>
         </div>
@@ -176,20 +176,20 @@
 		<div class="modal shadow-md flex flex-row">
       <div class="flex flex-row items-start w-[400px] justify-evenly pt-[50px]">
         <div class="w-[70px] mr-6">
-          <img src={DiamondIcon} alt="icon" />
+          <img src={DiamondIcon} alt="diamond icon" />
           <h3 class="modal-title font-bold text-base text-[#E53325] m-auto">
             <span>103</span>
             <span>de-fi</span>
           </h3>
         </div>
         <a href="/"  target="_blank" class="w-[55px] source disabled">
-          <img src={PictureIcon} alt="icon" />
+          <img src={PictureIcon} alt="video icon" />
           <h3 class="modal-title">
             video
           </h3>
         </a>
         <a href="https://podcasters.spotify.com/pod/show/-dojo-node-/episodes/103---DeFi-e2g3jsi" target="_blank" class="w-[55px] source">
-          <img src={MicrophoneIcon} alt="icon" />
+          <img src={MicrophoneIcon} alt="microphone icon" />
           <h3 class="modal-title">
             audio
           </h3>
@@ -198,20 +198,20 @@
 
       <div class="flex flex-col items-start mt-4 md:ml-10 w-[100px] overflow-clip gap-6">
         <div class="flex flex-row items-center">
-          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={SeedIcon} class="icon-small w-8 mr-4" alt="seed icon" />
+          <div class="category">
             <p class="active">seed</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={SproutIcon} class="icon-small w-8 mr-4" alt="sprout icon" />
+          <div class="category">
             <p class="">sprout</p>
           </div>
         </div>
         <div class="flex flex-row items-center">
-          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="red karate uniform icon" />
-          <div class="flex flex-col text-left category">
+          <img src={TreeIcon} class="icon-small w-8 mr-4" alt="tree icon" />
+          <div class="category">
             <p class="">tree</p>
           </div>
         </div>
@@ -281,6 +281,9 @@
 
   .category{
     color: hsl(var(--twc-tertiaryColor));
+    display: flex;
+    flex-direction: column;
+    text-align: left;
   }
 
   .category >.active{
