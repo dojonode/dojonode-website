@@ -1,5 +1,6 @@
 <script async lang="ts">
   import PocketBase from 'pocketbase';
+  import { SyncLoader } from 'svelte-loading-spinners';
 	import HeaderImage from '$lib/images/Header.avif';
 	import TatamiScrollIcon from '$lib/images/icons/TatamiScroll.svg';
 	import ArrowIcon from '$lib/images/icons/Arrow.svg';
@@ -19,10 +20,14 @@
   let isDescending = false;
   let sortValue = "minimumGas";
   let isCopied = false;
+  let proversLoading = false;
 
   const pb = new PocketBase("https://provers.dojonode.xyz");
 
   async function fetchRecords() {
+    // Show the loading spinner
+    proversLoading = true;
+
     // reset the records array
     records = [];
     // you can also fetch all records at once via getFullList
@@ -31,6 +36,9 @@
     // });
     provers = await pb.send('/validProvers', {});
     provers.sort((a,b) => a.minimumGas - b.minimumGas);
+
+    // disable the loading spinner
+    proversLoading = false;
   }
 
   fetchRecords();
@@ -207,19 +215,26 @@
 </section>
 
 <section>
-  <div
-      id="cards"
-      class="max-w-[920px] mt-4 flex flex-wrap justify-center overflow-y-clip"
-    >
-      {#if provers.length > 0}
-        {#each provers as prover}
-        <ProverCard endpoint={prover} />
-        {/each}
-      {/if}
-      <div class="invisible h-5">
-        <ProverCard endpoint={endpointExample}/>
-      </div>
-    </div>
+
+  {#if proversLoading}
+    <!-- Show spinner -->
+    <span class="mt-12 mb-1">checking endpoints for realtime data</span>
+    <SyncLoader size="50" unit="px" />
+  {:else}
+    <div
+        id="cards"
+        class="max-w-[920px] mt-4 flex flex-wrap justify-center overflow-y-clip"
+      >
+          {#if provers.length > 0}
+            {#each provers as prover}
+            <ProverCard endpoint={prover} />
+            {/each}
+          {/if}
+          <div class="invisible h-5">
+            <ProverCard endpoint={endpointExample}/>
+          </div>
+        </div>
+    {/if}
 </section>
 
 <style>
