@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="./favicon.ico" />
+		<link rel="icon" href="../favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <script async src="http://umami.dojonode.xyz/script.js" data-website-id="70c5d8e0-1909-4e1e-80fc-c10cf766dfdd"></script>
@@ -14,26 +14,26 @@
     <meta property="og:description" content="A user-friendly and visually pleasing dashboard for monitoring your Taiko node, proposer, or prover. Get real-time insights with ease from anywhere in the world.">
     <meta name="keywords" content="Taiko, ethereum, node monitoring, dashboard, real-time insights, dojo node">
 		
-		<link rel="modulepreload" href="./_app/immutable/entry/start.D4DYeWkh.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/entry.8mTxJ0JY.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BTxe7vy0.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.S5sVsGl8.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.CR-6Z4mp.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.B9OGSCv7.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.D4DYeWkh.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.8mTxJ0JY.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.BTxe7vy0.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.S5sVsGl8.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.CR-6Z4mp.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.B9OGSCv7.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
 					__sveltekit_w7cu2g = {
-						base: new URL(".", location).pathname.slice(0, -1)
+						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.D4DYeWkh.js"),
-						import("./_app/immutable/entry/app.CR-6Z4mp.js")
+						import("../_app/immutable/entry/start.D4DYeWkh.js"),
+						import("../_app/immutable/entry/app.CR-6Z4mp.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
