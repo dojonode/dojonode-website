@@ -211,7 +211,7 @@
     <div class="flex flex-row items-center gap-8">
       <a href="/kamiza">
         <span class="block icon-big">
-          <span class="text-[#5CAA80] font-bold">Kamiza</span>
+          <span class="text-[#5CAA80] font-bold">kamiza</span>
           <img src={KamizaScrollIcon} class="icon-big" alt="kamiza flag">
         </span>
       </a>

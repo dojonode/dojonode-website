@@ -13,7 +13,6 @@
 	import SubmitIcon from '$lib/images/icons/Submit.avif';
   import { goto } from '$app/navigation';
 
-  let records = [];
   let provers = [];
   let newProverEndpoint = "";
   let newProverEndpointError = "";
@@ -22,7 +21,7 @@
   let sortValue = "minimumGas";
   let isCopied = false;
   let proversLoading = false;
-  let selected = 'mainnet';
+  let selected = "hekla"
 
   const pb = new PocketBase("https://provers.dojonode.xyz");
 
@@ -31,12 +30,12 @@
     proversLoading = true;
 
     // reset the records array
-    records = [];
+    // records = [];
     // you can also fetch all records at once via getFullList
     // records = await pb.collection("prover_endpoints").getFullList({
     //   sort: "-created",
     // });
-    provers = await pb.send('/validProvers', {});
+    provers = await pb.send('/validTestnetProvers', {});
     provers?.sort((a,b) => a.minimumGas - b.minimumGas);
 
     // disable the loading spinner
@@ -113,7 +112,7 @@
       isDescending = true;
     }
 
-    provers = [...provers]?.sort((a, b) =>
+    provers = [...provers].sort((a, b) =>
     isDescending
     ? b[column] - a[column]
     : a[column] - b[column]
