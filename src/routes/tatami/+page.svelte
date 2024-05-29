@@ -73,11 +73,11 @@
   }
 
   function endpointExists(url){
-    return provers.find(prover => prover.url === url) !== undefined;
+    return provers?.find(prover => prover.url === url) !== undefined;
   }
 
   function copyProverEndpoints(){
-    let proversCommaSeparated = provers.map(p => p.url).join(',');
+    let proversCommaSeparated = provers?.map(p => p.url).join(',');
     if (!navigator.clipboard){
         // use old commandExec() way
         const textArea = document.createElement("textarea");

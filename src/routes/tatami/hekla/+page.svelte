@@ -57,7 +57,7 @@
         return;
       }
       // Add the prover to the DB
-      await pb.collection('prover_endpoints').create({
+      await pb.collection('testnet_prover_endpoints').create({
         url: newProverEndpoint,
       });
 
@@ -72,11 +72,11 @@
   }
 
   function endpointExists(url){
-    return provers.find(prover => prover.url === url) !== undefined;
+    return provers?.find(prover => prover.url === url) !== undefined;
   }
 
   function copyProverEndpoints(){
-    let proversCommaSeparated = provers.map(p => p.url).join(',');
+    let proversCommaSeparated = provers?.map(p => p.url).join(',');
     if (!navigator.clipboard){
         // use old commandExec() way
         const textArea = document.createElement("textarea");
