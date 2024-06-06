@@ -162,7 +162,7 @@
       <span class="text-[#5CAA80] font-bold">tatami</span>
       <img src={TatamiScrollIcon} class="icon-big m-auto" alt="tatami flag">
       <div>
-        <select class="mt-2 px-3 py-1 rounded-full" bind:value={selected} on:change={handleNavigation}>
+        <select id="networkDropdown" class="mt-2 px-3 py-1 rounded-full" bind:value={selected} on:change={handleNavigation}>
           <option value="mainnet">mainnet</option>
           <option value="hekla">hekla</option>
         </select>
@@ -293,4 +293,8 @@
     transition: transform 0.3s;
   }
 
+  #networkDropdown{
+    color: hsl(var(--twc-textColor));
+    background-color: hsl(var(--twc-cardBackgroundColor));
+  }
 </style>
